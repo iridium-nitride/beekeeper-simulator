@@ -316,6 +316,7 @@ function saveGame(){
     localStorage.setItem(`smallhiveUnit`, units.smallhive);
     localStorage.setItem(`honeyfridgeUnit`, units.honeyfridge);
     localStorage.setItem(`bighiveUnit`, units.bighive);
+    localStorage.setItem(`noneuclideanhoneycellarUnit`, units.noneuclideanhoneycellar);
 
     localStorage.setItem(`firstAchievement`, achievements.firstAchievement);
     localStorage.setItem(`secondAchievement`, achievements.secondAchievement);
@@ -356,6 +357,7 @@ document.querySelector(`#clearButton`).addEventListener("click", () => {
     units.smallhive = 0;
     units.honeyfridge = 0;
     units.bighive = 0;
+    units.noneuclideanhoneycellar = 0;
 
     achievements.firstAchievement = false;
     document.querySelector(`#firstAchievement`).classList.remove(`achieved`);

@@ -6,6 +6,7 @@
     --link-color: dodgerblue;
     --recieved-achievment-color: green;
     --affordable-unit-color: yellow;
+    --border-radius: 0.3rem;
 }
 *{
     font-family: 'Fira Code', monospace;
@@ -15,12 +16,14 @@
     :root{
         --color: black;
         --background-color: white;
+        --accent-color: blue;
     }
 }
 @media (prefers-color-scheme: dark){
     :root{
         --color: white;
-        --background-color: black;
+        --background-color: #121212;
+        --accent-color: orange;
     }
 }
 @media (max-width: 768px){
@@ -65,7 +68,7 @@ caption{
 }
 button:hover{
     color: var(--background-color);
-    background-color: var(--color);
+    background-color: var(--accent-color);
 }
 button{
     display: flex;
@@ -76,6 +79,8 @@ button{
     background-color: var(--background-color);
     border: 1px solid var(--color);
     padding: var(--s-space);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
 }
 #clearButton:hover{
     color: var(--background-color);
@@ -89,6 +94,18 @@ button{
 #container{
     width: 100%;
     height: 100%;
+}
+.stat, .achievement, .unit{
+    border: 1px dashed var(--color);
+    border-radius: var(--border-radius);
+}
+.stat:hover, .unit:hover, .achievement:hover{
+    border: 1px solid var(--color);
+    border-radius: var(--border-radius);
+}
+.achievement.achieved:hover{
+    border: 1px solid var(--recieved-achievment-color);
+    border-radius: var(--border-radius);
 }
 header{
     display: flex;
@@ -133,13 +150,9 @@ main{
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 1px dashed var(--color);
 }
 .unit.hidden{
     visibility: hidden;
-}
-.unit:hover{
-    border: 1px solid var(--color);
 }
 .unit *{
     margin: var(--s-space);
@@ -161,7 +174,6 @@ main{
     flex-direction: column;
     text-align: center;
     word-break: break-all;
-    border: 1px dashed var(--color);
     padding: var(--s-space);
 }
 .stat:hover{
@@ -173,7 +185,7 @@ main{
 #achievementsGrid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(12, 10%);
+    grid-template-rows: repeat(8, 12.5%);
     gap: var(--s-space);
     width: 100%;
     height: 100%;
@@ -184,16 +196,9 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px dashed var(--color);
-}
-.achievement:hover{
-    border: 1px solid var(--color);
 }
 .achievement.achieved{
     border: 1px dashed var(--recieved-achievment-color);
-}
-.achievement.achieved:hover{
-    border: 1px solid var(--recieved-achievment-color);
 }
 #beesButton{
     width: 100%;

@@ -326,7 +326,7 @@ function saveGame(){
 
     document.querySelector(`#saveState`).textContent = `game saved!`;
     setTimeout(() => {
-        document.querySelector(`#saveState`).textContent = `game saves on close/refresh`;
+        document.querySelector(`#saveState`).textContent = ``;
     }, 2000);
 }
 
@@ -387,5 +387,4 @@ setInterval(() => {
 window.addEventListener("beforeunload", function (e) {
     e.preventDefault();
     e.returnValue = ``;
-    saveGame();
 });

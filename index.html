@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>beekeeper simulator</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>&emsp;beekeeper simulator&emsp;&emsp;</h1>
+            <p>a fun clicker game about taking over the world with bees</p>
+        </header>
+        <main>
+            <div class="mainBox" id="statsSection">
+                <button id="beesButton">hire bees (<span id="beesClickCounter"></span>)</button>
+                <div id="statsGrid">
+                    <div class="stat">
+                        <p>bees</p>
+                        <h2 class="statCounter" id="beesCounter"></h2>
+                        <p class="limitCounter" id="beeLimitCounter"></p>
+                    </div>
+                    <div class="stat">
+                        <p>honey</p>
+                        <h2 class="statCounter" id="honeyCounter"></h2>
+                        <p class="limitCounter" id="honeyLimitCounter"></p>
+                    </div>
+                    <div class="stat">
+                        <p>bees/second</p>
+                        <h2 class="statCounter" id="beesSecondCounter"></h2>
+                    </div>
+                    <div class="stat">
+                        <p>honey/bee</p>
+                        <h2 class="statCounter" id="honeyBeeCounter"></h2>
+                        <h2 class="statCounter" id="honeySecondCounter"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="mainBox" id="unitsSection">
+                <div id="unitsGrid">
+                    <div class="unit" id="beeboxUnit">
+                        <p id="beeboxUnitCounter"></p>
+                        <button id="beeboxUnitPurchase">buy (<span id="beeboxUnitPriceCounter"></span>)</button>
+                        <p><strong>bee box&emsp;</strong>+150 bee capacity</p>
+                    </div>
+                    <div class="unit" id="interviewerUnit">
+                        <p id="interviewerUnitCounter"></p>
+                        <button id="interviewerUnitPurchase">buy (<span id="interviewerUnitPriceCounter"></span>)</button>
+                        <p><strong>interviewer&emsp;</strong>+1 bees per click</p>
+                    </div>
+                    <div class="unit" id="flowergardenUnit">
+                        <p id="flowergardenUnitCounter"></p>
+                        <button id="flowergardenUnitPurchase">buy (<span id="flowergardenUnitPriceCounter"></span>)</button>
+                        <p><strong>flower garden&emsp;</strong>+0.01 honey per bee</p>
+                    </div>
+                    <div class="unit" id="honeycrateUnit">
+                        <p id="honeycrateUnitCounter"></p>
+                        <button id="honeycrateUnitPurchase">buy (<span id="honeycrateUnitPriceCounter"></span>)</button>
+                        <p><strong>honey crate&emsp;</strong>+1000 honey capacity</p>
+                    </div>
+                    <div class="unit" id="queenbeeUnit">
+                        <p id="queenbeeUnitCounter"></p>
+                        <button id="queenbeeUnitPurchase">buy (<span id="queenbeeUnitPriceCounter"></span>)</button>
+                        <p><strong>queen bee&emsp;</strong>+1 bee per second</p>
+                    </div>
+                    <div class="unit" id="smokerUnit">
+                        <p id="smokerUnitCounter"></p>
+                        <button id="smokerUnitPurchase">buy (<span id="smokerUnitPriceCounter"></span>)</button>
+                        <p><strong>smoker&emsp;</strong>+0.1 honey per bee</p>
+                    </div>
+                    <div class="unit" id="smallhiveUnit">
+                        <p id="smallhiveUnitCounter"></p>
+                        <button id="smallhiveUnitPurchase">buy (<span id="smallhiveUnitPriceCounter"></span>)</button>
+                        <p><strong>small hive&emsp;</strong>+1000 bee capacity</p>
+                    </div>
+                    <div class="unit" id="honeyfridgeUnit">
+                        <p id="honeyfridgeUnitCounter"></p>
+                        <button id="honeyfridgeUnitPurchase">buy (<span id="honeyfridgeUnitPriceCounter"></span>)</button>
+                        <p><strong>honey fridge&emsp;</strong>+12000 honey capacity</p>
+                    </div>
+                    <div class="unit" id="bighiveUnit">
+                        <p id="bighiveUnitCounter"></p>
+                        <button id="bighiveUnitPurchase">buy (<span id="bighiveUnitPriceCounter"></span>)</button>
+                        <p><strong>big hive&emsp;</strong>+5000 bee capacity, +0.5 honey per bee</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainBox" id="achievementsSection">
+                <div id="achievementsGrid">
+                    <div class="achievement" title="you've got to start somewhere!" id="firstAchievement">
+                        <p>hire a bee</p>
+                    </div>
+                    <div class="achievement" title="take that, barry b. benson" id="secondAchievement">
+                        <p>get 100 honey</p>
+                    </div>
+                    <div class="achievement" title="expenditures" id="thirdAchievement">
+                        <p>buy a unit</p>
+                    </div>
+                    <div class="achievement" title="overcrowded!" id="fourthAchievement">
+                        <p>reach bee capacity</p>
+                    </div>
+                    <div class="achievement" title="now you need another honey jar" id="fifthAchievement">
+                        <p>reach honey capacity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainBox" id="aboutSection">
+                <div id="gameButtons">
+                    <button id="saveButton">save game</button>
+                    <button id="clearButton">clear all</button>
+                </div>
+                <p id="saveState">game saves on close/refresh</p>
+                <p>an iridium-nitride production</p>
+                <hr>
+                <p>1.0&emsp;&emsp;game created</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js" defer></script>
+    <!-- what you doing in inspect element? trying to CHEAT??? -->
+</body>
+</html>

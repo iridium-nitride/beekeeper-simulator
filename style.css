@@ -1,0 +1,211 @@
+:root{
+    --l-space: 2em;
+    --m-space: 1em;
+    --s-space: 0.5em;
+    --alert-color: red;
+    --link-color: dodgerblue;
+    --recieved-achievment-color: green;
+    --affordable-unit-color: yellow;
+}
+*{
+    font-family: 'Fira Code', monospace;
+    box-sizing: border-box;
+}
+@media (prefers-color-scheme: light){
+    :root{
+        --color: black;
+        --background-color: white;
+    }
+}
+@media (prefers-color-scheme: dark){
+    :root{
+        --color: white;
+        --background-color: black;
+    }
+}
+@media (max-width: 768px){
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr) !important;
+    }
+    #unitsSection, #statsSection, #achievementsSection, #aboutSection{
+        grid-column: 1;
+    }
+    #unitsSection{
+        grid-row: 2;
+    }
+    #statsSection{
+        grid-row: 1;
+    }
+    #achievementsSection{
+        grid-row: 3;
+    }
+    #aboutSection{
+        grid-row: 4;
+    }
+}
+html, body{
+    background-color: var(--background-color);
+    color: var(--color);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: var(--link-color);
+    text-decoration: none;
+}
+th{
+    min-width: 10em;
+    text-align: left;
+}
+caption{
+    font-size: 0.5em;
+}
+button:hover{
+    color: var(--background-color);
+    background-color: var(--color);
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color);
+    background-color: var(--background-color);
+    border: 1px solid var(--color);
+    padding: var(--s-space);
+}
+#clearButton:hover{
+    color: var(--background-color);
+    background-color: var(--alert-color);
+}
+#clearButton{
+    color: var(--alert-color);
+    border: 1px solid var(--alert-color);
+    background-color: var(--background-color);
+}
+#container{
+    width: 100%;
+    height: 100%;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 5em;
+    padding: var(--s-space);
+    background-color: var(--background-color);
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
+    width: 100%;
+    height: 100%;
+    padding: var(--m-space);
+    padding-top: 6em;
+}
+.mainBox{
+    padding: var(--m-space);
+    overflow: auto;
+}
+.unitContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--color);
+    margin: var(--m-space);
+}
+.unitContainer *{
+    margin: var(--m-space);
+}
+#unitsGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: var(--s-space);
+}
+.unit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px dashed var(--color);
+}
+.unit.hidden{
+    visibility: hidden;
+}
+.unit:hover{
+    border: 1px solid var(--color);
+}
+.unit *{
+    margin: var(--s-space);
+}
+#statsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#statsGrid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+    gap: var(--m-space);
+    flex: 1;
+}
+.stat{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px dashed var(--color);
+    padding: var(--s-space);
+}
+.stat:hover{
+    border: 1px solid var(--color);
+}
+.statCounter{
+    word-break: break-all;
+}
+#achievementsGrid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(12, 10%);
+    gap: var(--s-space);
+    width: 100%;
+    height: 100%;
+}
+.achievement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px dashed var(--color);
+}
+.achievement:hover{
+    border: 1px solid var(--color);
+}
+.achievement.achieved{
+    border: 1px dashed var(--recieved-achievment-color);
+}
+.achievement.achieved:hover{
+    border: 1px solid var(--recieved-achievment-color);
+}
+#beesButton{
+    width: 100%;
+    height: 10%;
+    margin-bottom: var(--m-space);
+}
+.limitCounter{
+    opacity: 0.5;
+}
+#gameButtons{
+    display: flex;
+    flex-direction: row;
+}
+#gameButtons button{
+    margin-right: var(--m-space);
+}

@@ -160,6 +160,7 @@ main{
     display: flex;
     flex-direction: column;
     text-align: center;
+    word-break: break-all;
     border: 1px dashed var(--color);
     padding: var(--s-space);
 }

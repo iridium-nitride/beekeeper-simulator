@@ -28,6 +28,7 @@ const units = {
     smallhive: parseInt(localStorage.getItem(`smallhiveUnit`)) || 0,
     honeyfridge: parseInt(localStorage.getItem(`honeyfridgeUnit`)) || 0,
     bighive: parseInt(localStorage.getItem(`bighiveUnit`)) || 0,
+    noneuclideanhoneycellar: parseInt(localStorage.getItem(`noneuclideanhoneycellarUnit`)) || 0,
 
     beeboxPriceBase: 500,
     interviewerPriceBase: 800,
@@ -38,6 +39,7 @@ const units = {
     smallhivePriceBase: 12000,
     honeyfridgePriceBase: 18000,
     bighivePriceBase: 32000,
+    noneuclideanhoneycellarPriceBase: 50000,
 
     beeboxPrice: 0,
     interviewerPrice: 0,
@@ -48,6 +50,7 @@ const units = {
     smallhivePrice: 0,
     honeyfridgePrice: 0,
     bighivePrice: 0,
+    noneuclideanhoneycellarPrice: 0,
 }
 
 const achievements = {
@@ -69,8 +72,8 @@ function refreshNumbers(){
     document.querySelector(`#beesClickCounter`).textContent = beesClick;
     document.querySelector(`#honeySecondCounter`).textContent = (honeyBee * bees).toFixed(2);
 
-    document.querySelector(`#beeLimitCounter`).textContent = beeLimit;
-    document.querySelector(`#honeyLimitCounter`).textContent = honeyLimit;
+    document.querySelector(`#beeLimitCounter`).textContent = Math.floor(beeLimit);
+    document.querySelector(`#honeyLimitCounter`).textContent = Math.floor(honeyLimit);
 
     document.querySelector(`#beeboxUnitCounter`).textContent = units.beebox;
     document.querySelector(`#interviewerUnitCounter`).textContent = units.interviewer;
@@ -81,6 +84,7 @@ function refreshNumbers(){
     document.querySelector(`#smallhiveUnitCounter`).textContent = units.smallhive;
     document.querySelector(`#honeyfridgeUnitCounter`).textContent = units.honeyfridge;
     document.querySelector(`#bighiveUnitCounter`).textContent = units.bighive;
+    document.querySelector(`#noneuclideanhoneycellarUnitCounter`).textContent = units.noneuclideanhoneycellar;
 
     document.querySelector(`#beeboxUnitPriceCounter`).textContent = units.beeboxPrice;
     document.querySelector(`#interviewerUnitPriceCounter`).textContent = units.interviewerPrice;
@@ -91,6 +95,7 @@ function refreshNumbers(){
     document.querySelector(`#smallhiveUnitPriceCounter`).textContent = units.smallhivePrice;
     document.querySelector(`#honeyfridgeUnitPriceCounter`).textContent = units.honeyfridgePrice;
     document.querySelector(`#bighiveUnitPriceCounter`).textContent = units.bighivePrice;
+    document.querySelector(`#noneuclideanhoneycellarUnitPriceCounter`).textContent = units.noneuclideanhoneycellarPrice;
 }
 
 function checkImpact(){
@@ -100,7 +105,8 @@ function checkImpact(){
     beesClick = beesClickBase + (units.interviewer * 1);
 
     beeLimit = beeLimitBase + (units.beebox * 150) + (units.smallhive * 1000);
-    honeyLimit = honeyLimitBase + (units.honeycrate * 1000) + (units.honeyfridge * 12000);
+    let baseHoneyLimit = honeyLimitBase + (units.honeycrate * 1000) + (units.honeyfridge * 12000);
+    honeyLimit = baseHoneyLimit * (1.2 ** units.noneuclideanhoneycellar);
 
     units.beeboxPrice = Math.floor(units.beeboxPriceBase * (priceIncrement ** units.beebox));
     units.interviewerPrice = Math.floor(units.interviewerPriceBase * (priceIncrement ** units.interviewer));
@@ -111,6 +117,7 @@ function checkImpact(){
     units.smallhivePrice = Math.floor(units.smallhivePriceBase * (priceIncrement ** units.smallhive));
     units.honeyfridgePrice = Math.floor(units.honeyfridgePriceBase * (priceIncrement ** units.honeyfridge));
     units.bighivePrice = Math.floor(units.bighivePriceBase * (priceIncrement ** units.bighive));
+    units.noneuclideanhoneycellarPrice = Math.floor(units.noneuclideanhoneycellarPriceBase * (priceIncrement ** units.noneuclideanhoneycellar));
 
     //ACHIEVEMENTS
 
@@ -274,6 +281,16 @@ document.querySelector(`#bighiveUnitPurchase`).addEventListener("click", () => {
     if (honey >= units.bighivePrice){
         units.bighive++;
         honey -= units.bighivePrice;
+        document.dispatchEvent(unitPurchaseEvent);
+        checkImpact();
+        refreshNumbers();
+    }
+});
+
+document.querySelector(`#noneuclideanhoneycellarUnitPurchase`).addEventListener("click", () => {
+    if (honey >= units.noneuclideanhoneycellarPrice){
+        units.noneuclideanhoneycellar++;
+        honey -= units.noneuclideanhoneycellarPrice;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();

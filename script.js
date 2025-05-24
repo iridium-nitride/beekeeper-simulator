@@ -65,7 +65,7 @@ function refreshNumbers(){
     document.querySelector(`#beesCounter`).textContent = bees;
     document.querySelector(`#honeyCounter`).textContent = Math.floor(honey);
     document.querySelector(`#beesSecondCounter`).textContent = beesSecond;
-    document.querySelector(`#honeyBeeCounter`).textContent = honeyBee;
+    document.querySelector(`#honeyBeeCounter`).textContent = (honeyBee).toFixed(2);
     document.querySelector(`#beesClickCounter`).textContent = beesClick;
     document.querySelector(`#honeySecondCounter`).textContent = (honeyBee * bees).toFixed(2);
 

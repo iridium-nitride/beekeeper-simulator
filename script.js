@@ -149,39 +149,39 @@ function checkImpact(){
 
     //UNIT HIDING THINGY
 
-    if (honey >= (units.interviewerPrice / 2)){
+    if (honey >= (units.interviewerPriceBase / 2)){
         document.querySelector(`#interviewerUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.flowergardenPrice / 2)){
+    if (honey >= (units.flowergardenPriceBase / 2)){
         document.querySelector(`#flowergardenUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.honeycratePrice / 2)){
+    if (honey >= (units.honeycratePriceBase / 2)){
         document.querySelector(`#honeycrateUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.queenbeePrice / 2)){
+    if (honey >= (units.queenbeePriceBase / 2)){
         document.querySelector(`#queenbeeUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.smokerPrice / 2)){
+    if (honey >= (units.smokerPriceBase / 2)){
         document.querySelector(`#smokerUnit`).classList.remove(`hidden`);
     };
     
-    if (honey >= (units.smallhivePrice / 2)){
+    if (honey >= (units.smallhivePriceBase / 2)){
         document.querySelector(`#smallhiveUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.honeyfridgePrice / 2)){
+    if (honey >= (units.honeyfridgePriceBase / 2)){
         document.querySelector(`#honeyfridgeUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.bighivePrice / 2)){
+    if (honey >= (units.bighivePriceBase / 2)){
         document.querySelector(`#bighiveUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.noneuclideanhoneycellarPrice / 2)){
+    if (honey >= (units.noneuclideanhoneycellarPriceBase / 2)){
         document.querySelector(`#noneuclideanhoneycellarUnit`).classList.remove(`hidden`);
     };
 }

@@ -104,7 +104,7 @@ function checkImpact(){
     honeyBee = honeyBeeBase + (units.flowergarden * 0.01) + (units.smoker * 0.1) + (units.bighive * 0.5);
     beesClick = beesClickBase + (units.interviewer * 1);
 
-    beeLimit = beeLimitBase + (units.beebox * 150) + (units.smallhive * 1000);
+    beeLimit = beeLimitBase + (units.beebox * 150) + (units.smallhive * 1000) + (units.bighive * 5000);
     let baseHoneyLimit = honeyLimitBase + (units.honeycrate * 1000) + (units.honeyfridge * 12000);
     honeyLimit = baseHoneyLimit * (1.2 ** units.noneuclideanhoneycellar);
 

@@ -180,6 +180,10 @@ function checkImpact(){
     if (honey >= (units.bighivePrice / 2)){
         document.querySelector(`#bighiveUnit`).classList.remove(`hidden`);
     };
+
+    if (honey >= (units.noneuclideanhoneycellarPrice / 2)){
+        document.querySelector(`#noneuclideanhoneycellarUnit`).classList.remove(`hidden`);
+    };
 }
 
 function generateHoney(){

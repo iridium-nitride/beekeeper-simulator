@@ -1,7 +1,7 @@
 :root{
-    --l-space: 2em;
-    --m-space: 1em;
-    --s-space: 0.5em;
+    --l-space: 2rem;
+    --m-space: 1rem;
+    --s-space: 0.5rem;
     --alert-color: red;
     --link-color: dodgerblue;
     --recieved-achievment-color: green;
@@ -57,11 +57,11 @@ a{
     text-decoration: none;
 }
 th{
-    min-width: 10em;
+    min-width: 10rem;
     text-align: left;
 }
 caption{
-    font-size: 0.5em;
+    font-size: 0.5rem;
 }
 button:hover{
     color: var(--background-color);
@@ -96,7 +96,7 @@ header{
     align-items: center;
     position: fixed;
     width: 100%;
-    height: 5em;
+    height: 5rem;
     padding: var(--s-space);
     background-color: var(--background-color);
 }
@@ -107,7 +107,7 @@ main{
     width: 100%;
     height: 100%;
     padding: var(--m-space);
-    padding-top: 6em;
+    padding-top: 6rem;
 }
 .mainBox{
     padding: var(--m-space);

@@ -132,7 +132,7 @@ function checkImpact(){
         document.querySelector(`#secondAchievement`).classList.add(`achieved`);
     };
         //third
-    document.addEventListener("unitPurchased", (e) => {
+    document.addEventListener("unitPurchased", () => {
         achievements.thirdAchievement = true;
         document.querySelector(`#thirdAchievement`).classList.add(`achieved`);
     });

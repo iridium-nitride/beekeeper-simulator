@@ -65,37 +65,37 @@ checkImpact();
 refreshNumbers();
 
 function refreshNumbers(){
-    document.querySelector(`#beesCounter`).textContent = bees;
-    document.querySelector(`#honeyCounter`).textContent = Math.floor(honey);
-    document.querySelector(`#beesSecondCounter`).textContent = beesSecond;
-    document.querySelector(`#honeyBeeCounter`).textContent = honeyBee;
-    document.querySelector(`#beesClickCounter`).textContent = beesClick;
-    document.querySelector(`#honeySecondCounter`).textContent = (honeyBee * bees).toFixed(2);
+    document.querySelector(`#beesCounter`).textContent = bees.toLocaleString();
+    document.querySelector(`#honeyCounter`).textContent = Math.floor(honey).toLocaleString();
+    document.querySelector(`#beesSecondCounter`).textContent = beesSecond.toLocaleString();
+    document.querySelector(`#honeyBeeCounter`).textContent = honeyBee.toLocaleString();
+    document.querySelector(`#beesClickCounter`).textContent = beesClick.toLocaleString();
+    document.querySelector(`#honeySecondCounter`).textContent = (honeyBee * bees).toFixed(2).toLocaleString();
 
-    document.querySelector(`#beeLimitCounter`).textContent = Math.floor(beeLimit);
-    document.querySelector(`#honeyLimitCounter`).textContent = Math.floor(honeyLimit);
+    document.querySelector(`#beeLimitCounter`).textContent = Math.floor(beeLimit).toLocaleString();
+    document.querySelector(`#honeyLimitCounter`).textContent = Math.floor(honeyLimit).toLocaleString();
 
-    document.querySelector(`#beeboxUnitCounter`).textContent = units.beebox;
-    document.querySelector(`#interviewerUnitCounter`).textContent = units.interviewer;
-    document.querySelector(`#flowergardenUnitCounter`).textContent = units.flowergarden;
-    document.querySelector(`#honeycrateUnitCounter`).textContent = units.honeycrate;
-    document.querySelector(`#queenbeeUnitCounter`).textContent = units.queenbee;
-    document.querySelector(`#smokerUnitCounter`).textContent = units.smoker;
-    document.querySelector(`#smallhiveUnitCounter`).textContent = units.smallhive;
-    document.querySelector(`#honeyfridgeUnitCounter`).textContent = units.honeyfridge;
-    document.querySelector(`#bighiveUnitCounter`).textContent = units.bighive;
-    document.querySelector(`#noneuclideanhoneycellarUnitCounter`).textContent = units.noneuclideanhoneycellar;
+    document.querySelector(`#beeboxUnitCounter`).textContent = units.beebox.toLocaleString();
+    document.querySelector(`#interviewerUnitCounter`).textContent = units.interviewer.toLocaleString();
+    document.querySelector(`#flowergardenUnitCounter`).textContent = units.flowergarden.toLocaleString();
+    document.querySelector(`#honeycrateUnitCounter`).textContent = units.honeycrate.toLocaleString();
+    document.querySelector(`#queenbeeUnitCounter`).textContent = units.queenbee.toLocaleString();
+    document.querySelector(`#smokerUnitCounter`).textContent = units.smoker.toLocaleString();
+    document.querySelector(`#smallhiveUnitCounter`).textContent = units.smallhive.toLocaleString();
+    document.querySelector(`#honeyfridgeUnitCounter`).textContent = units.honeyfridge.toLocaleString();
+    document.querySelector(`#bighiveUnitCounter`).textContent = units.bighive.toLocaleString();
+    document.querySelector(`#noneuclideanhoneycellarUnitCounter`).textContent = units.noneuclideanhoneycellar.toLocaleString();
 
-    document.querySelector(`#beeboxUnitPriceCounter`).textContent = units.beeboxPrice;
-    document.querySelector(`#interviewerUnitPriceCounter`).textContent = units.interviewerPrice;
-    document.querySelector(`#flowergardenUnitPriceCounter`).textContent = units.flowergardenPrice;
-    document.querySelector(`#honeycrateUnitPriceCounter`).textContent = units.honeycratePrice;
-    document.querySelector(`#queenbeeUnitPriceCounter`).textContent = units.queenbeePrice;
-    document.querySelector(`#smokerUnitPriceCounter`).textContent = units.smokerPrice;
-    document.querySelector(`#smallhiveUnitPriceCounter`).textContent = units.smallhivePrice;
-    document.querySelector(`#honeyfridgeUnitPriceCounter`).textContent = units.honeyfridgePrice;
-    document.querySelector(`#bighiveUnitPriceCounter`).textContent = units.bighivePrice;
-    document.querySelector(`#noneuclideanhoneycellarUnitPriceCounter`).textContent = units.noneuclideanhoneycellarPrice;
+    document.querySelector(`#beeboxUnitPriceCounter`).textContent = units.beeboxPrice.toLocaleString();
+    document.querySelector(`#interviewerUnitPriceCounter`).textContent = units.interviewerPrice.toLocaleString();
+    document.querySelector(`#flowergardenUnitPriceCounter`).textContent = units.flowergardenPrice.toLocaleString();
+    document.querySelector(`#honeycrateUnitPriceCounter`).textContent = units.honeycratePrice.toLocaleString();
+    document.querySelector(`#queenbeeUnitPriceCounter`).textContent = units.queenbeePrice.toLocaleString();
+    document.querySelector(`#smokerUnitPriceCounter`).textContent = units.smokerPrice.toLocaleString();
+    document.querySelector(`#smallhiveUnitPriceCounter`).textContent = units.smallhivePrice.toLocaleString();
+    document.querySelector(`#honeyfridgeUnitPriceCounter`).textContent = units.honeyfridgePrice.toLocaleString();
+    document.querySelector(`#bighiveUnitPriceCounter`).textContent = units.bighivePrice.toLocaleString();
+    document.querySelector(`#noneuclideanhoneycellarUnitPriceCounter`).textContent = units.noneuclideanhoneycellarPrice.toLocaleString();
 }
 
 function checkImpact(){

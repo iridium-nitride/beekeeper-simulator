@@ -18,47 +18,66 @@ const unitDivsExceptFirst = document.querySelectorAll(`.unit:not(:first-of-type)
 unitDivsExceptFirst.forEach(unit => unit.classList.add(`hidden`));
 
 const unitPurchaseEvent = new CustomEvent(`unitPurchased`);
-const units = {
-    beebox: parseInt(localStorage.getItem(`beeboxUnit`)) || 0,
-    interviewer: parseInt(localStorage.getItem(`interviewerUnit`)) || 0,
-    flowergarden: parseInt(localStorage.getItem(`flowergardenUnit`)) || 0,
-    honeycrate: parseInt(localStorage.getItem(`honeycrateUnit`)) || 0,
-    queenbee: parseInt(localStorage.getItem(`queenbeeUnit`)) || 0,
-    smoker: parseInt(localStorage.getItem(`smokerUnit`)) || 0,
-    smallhive: parseInt(localStorage.getItem(`smallhiveUnit`)) || 0,
-    honeyfridge: parseInt(localStorage.getItem(`honeyfridgeUnit`)) || 0,
-    bighive: parseInt(localStorage.getItem(`bighiveUnit`)) || 0,
-    noneuclideanhoneycellar: parseInt(localStorage.getItem(`noneuclideanhoneycellarUnit`)) || 0,
 
-    beeboxPriceBase: 500,
-    interviewerPriceBase: 800,
-    flowergardenPriceBase: 1200,
-    honeycratePriceBase: 1800,
-    queenbeePriceBase: 3000,
-    smokerPriceBase: 6000,
-    smallhivePriceBase: 12000,
-    honeyfridgePriceBase: 18000,
-    bighivePriceBase: 32000,
-    noneuclideanhoneycellarPriceBase: 50000,
+//UNITS
 
-    beeboxPrice: 0,
-    interviewerPrice: 0,
-    flowergardenPrice: 0,
-    honeycratePrice: 0,
-    queenbeePrice: 0,
-    smokerPrice: 0,
-    smallhivePrice: 0,
-    honeyfridgePrice: 0,
-    bighivePrice: 0,
-    noneuclideanhoneycellarPrice: 0,
+const beebox = {
+    number: parseInt(localStorage.getItem(`beeboxUnit`)) || 0,
+    priceBase: 500,
+    price: 0,
+}
+const interviewer = {
+    number: parseInt(localStorage.getItem(`interviewerUnit`)) || 0,
+    priceBase: 800,
+    price: 0,
+}
+const flowergarden = {
+    number: parseInt(localStorage.getItem(`flowergardenUnit`)) || 0,
+    priceBase: 1200,
+    price: 0,
+}
+const honeycrate = {
+    number: parseInt(localStorage.getItem(`honeycrateUnit`)) || 0,
+    priceBase: 1800,
+    price: 0,
+}
+const queenbee = {
+    number: parseInt(localStorage.getItem(`queenbeeUnit`)) || 0,
+    priceBase: 3000,
+    price: 0,
+}
+const smoker = {
+    number: parseInt(localStorage.getItem(`smokerUnit`)) || 0,
+    priceBase: 6000,
+    price: 0,
+}
+const smallhive = {
+    number: parseInt(localStorage.getItem(`smallhiveUnit`)) || 0,
+    priceBase: 12000,
+    price: 0,
+}
+const honeyfridge = {
+    number: parseInt(localStorage.getItem(`honeyfridgeUnit`)) || 0,
+    priceBase: 18000,
+    price: 0,
+}
+const bighive = {
+    number: parseInt(localStorage.getItem(`bighiveUnit`)) || 0,
+    priceBase: 32000,
+    price: 0,
+}
+const noneuclideanhoneycellar = {
+    number: parseInt(localStorage.getItem(`noneuclideanhoneycellarUnit`)) || 0,
+    priceBase: 50000,
+    price: 0,
 }
 
 const achievements = {
-    firstAchievement: localStorage.getItem(`firstAchievement`) || false,
-    secondAchievement: localStorage.getItem(`secondAchievement`) || false,
-    thirdAchievement: localStorage.getItem(`thirdAchievement`) || false,
-    fourthAchievement: localStorage.getItem(`fourthAchievement`) || false,
-    fifthAchievement: localStorage.getItem(`fifthAchievement`) || false,
+    firstAchievement: localStorage.getItem(`firstAchievement`) === "true",
+    secondAchievement: localStorage.getItem(`secondAchievement`)  === "true",
+    thirdAchievement: localStorage.getItem(`thirdAchievement`) === "true",
+    fourthAchievement: localStorage.getItem(`fourthAchievement`)  === "true",
+    fifthAchievement: localStorage.getItem(`fifthAchievement`)  === "true",
 }
 
 checkImpact();
@@ -75,49 +94,49 @@ function refreshNumbers(){
     document.querySelector(`#beeLimitCounter`).textContent = Math.floor(beeLimit).toLocaleString();
     document.querySelector(`#honeyLimitCounter`).textContent = Math.floor(honeyLimit).toLocaleString();
 
-    document.querySelector(`#beeboxUnitCounter`).textContent = units.beebox.toLocaleString();
-    document.querySelector(`#interviewerUnitCounter`).textContent = units.interviewer.toLocaleString();
-    document.querySelector(`#flowergardenUnitCounter`).textContent = units.flowergarden.toLocaleString();
-    document.querySelector(`#honeycrateUnitCounter`).textContent = units.honeycrate.toLocaleString();
-    document.querySelector(`#queenbeeUnitCounter`).textContent = units.queenbee.toLocaleString();
-    document.querySelector(`#smokerUnitCounter`).textContent = units.smoker.toLocaleString();
-    document.querySelector(`#smallhiveUnitCounter`).textContent = units.smallhive.toLocaleString();
-    document.querySelector(`#honeyfridgeUnitCounter`).textContent = units.honeyfridge.toLocaleString();
-    document.querySelector(`#bighiveUnitCounter`).textContent = units.bighive.toLocaleString();
-    document.querySelector(`#noneuclideanhoneycellarUnitCounter`).textContent = units.noneuclideanhoneycellar.toLocaleString();
+    document.querySelector(`#beeboxUnitCounter`).textContent = beebox.number.toLocaleString();
+    document.querySelector(`#interviewerUnitCounter`).textContent = interviewer.number.toLocaleString();
+    document.querySelector(`#flowergardenUnitCounter`).textContent = flowergarden.number.toLocaleString();
+    document.querySelector(`#honeycrateUnitCounter`).textContent = honeycrate.number.toLocaleString();
+    document.querySelector(`#queenbeeUnitCounter`).textContent = queenbee.number.toLocaleString();
+    document.querySelector(`#smokerUnitCounter`).textContent = smoker.number.toLocaleString();
+    document.querySelector(`#smallhiveUnitCounter`).textContent = smallhive.number.toLocaleString();
+    document.querySelector(`#honeyfridgeUnitCounter`).textContent = honeyfridge.number.toLocaleString();
+    document.querySelector(`#bighiveUnitCounter`).textContent = bighive.number.toLocaleString();
+    document.querySelector(`#noneuclideanhoneycellarUnitCounter`).textContent = noneuclideanhoneycellar.number.toLocaleString();
 
-    document.querySelector(`#beeboxUnitPriceCounter`).textContent = units.beeboxPrice.toLocaleString();
-    document.querySelector(`#interviewerUnitPriceCounter`).textContent = units.interviewerPrice.toLocaleString();
-    document.querySelector(`#flowergardenUnitPriceCounter`).textContent = units.flowergardenPrice.toLocaleString();
-    document.querySelector(`#honeycrateUnitPriceCounter`).textContent = units.honeycratePrice.toLocaleString();
-    document.querySelector(`#queenbeeUnitPriceCounter`).textContent = units.queenbeePrice.toLocaleString();
-    document.querySelector(`#smokerUnitPriceCounter`).textContent = units.smokerPrice.toLocaleString();
-    document.querySelector(`#smallhiveUnitPriceCounter`).textContent = units.smallhivePrice.toLocaleString();
-    document.querySelector(`#honeyfridgeUnitPriceCounter`).textContent = units.honeyfridgePrice.toLocaleString();
-    document.querySelector(`#bighiveUnitPriceCounter`).textContent = units.bighivePrice.toLocaleString();
-    document.querySelector(`#noneuclideanhoneycellarUnitPriceCounter`).textContent = units.noneuclideanhoneycellarPrice.toLocaleString();
+    document.querySelector(`#beeboxUnitPriceCounter`).textContent = beebox.price.toLocaleString();
+    document.querySelector(`#interviewerUnitPriceCounter`).textContent = interviewer.price.toLocaleString();
+    document.querySelector(`#flowergardenUnitPriceCounter`).textContent = flowergarden.price.toLocaleString();
+    document.querySelector(`#honeycrateUnitPriceCounter`).textContent = honeycrate.price.toLocaleString();
+    document.querySelector(`#queenbeeUnitPriceCounter`).textContent = queenbee.price.toLocaleString();
+    document.querySelector(`#smokerUnitPriceCounter`).textContent = smoker.price.toLocaleString();
+    document.querySelector(`#smallhiveUnitPriceCounter`).textContent = smallhive.price.toLocaleString();
+    document.querySelector(`#honeyfridgeUnitPriceCounter`).textContent = honeyfridge.price.toLocaleString();
+    document.querySelector(`#bighiveUnitPriceCounter`).textContent = bighive.price.toLocaleString();
+    document.querySelector(`#noneuclideanhoneycellarUnitPriceCounter`).textContent = noneuclideanhoneycellar.price.toLocaleString();
 }
 
 function checkImpact(){
     //REMEMBER TO EDIT THESE WHEN ADDING NEW UNITS
-    beesSecond = beesSecondBase + (units.queenbee * 1);
-    honeyBee = honeyBeeBase + (units.flowergarden * 0.01) + (units.smoker * 0.1) + (units.bighive * 0.5);
-    beesClick = beesClickBase + (units.interviewer * 1);
+    beesSecond = beesSecondBase + (queenbee.number * 1);
+    honeyBee = honeyBeeBase + (flowergarden.number * 0.01) + (smoker.number * 0.1) + (bighive.number * 0.5);
+    beesClick = beesClickBase + (interviewer.number * 1);
 
-    beeLimit = beeLimitBase + (units.beebox * 150) + (units.smallhive * 1000) + (units.bighive * 5000);
-    let baseHoneyLimit = honeyLimitBase + (units.honeycrate * 1000) + (units.honeyfridge * 12000);
-    honeyLimit = baseHoneyLimit * (1.2 ** units.noneuclideanhoneycellar);
+    beeLimit = beeLimitBase + (beebox.number * 150) + (smallhive.number * 1000) + (bighive.number * 5000);
+    let baseHoneyLimit = honeyLimitBase + (honeycrate.number * 1000) + (honeyfridge.number * 12000);
+    honeyLimit = baseHoneyLimit * (1.2 ** noneuclideanhoneycellar.number);
 
-    units.beeboxPrice = Math.floor(units.beeboxPriceBase * (priceIncrement ** units.beebox));
-    units.interviewerPrice = Math.floor(units.interviewerPriceBase * (priceIncrement ** units.interviewer));
-    units.flowergardenPrice = Math.floor(units.flowergardenPriceBase * (priceIncrement ** units.flowergarden));
-    units.honeycratePrice = Math.floor(units.honeycratePriceBase * (priceIncrement ** units.honeycrate));
-    units.queenbeePrice = Math.floor(units.queenbeePriceBase * (priceIncrement ** units.queenbee));
-    units.smokerPrice = Math.floor(units.smokerPriceBase * (priceIncrement ** units.smoker));
-    units.smallhivePrice = Math.floor(units.smallhivePriceBase * (priceIncrement ** units.smallhive));
-    units.honeyfridgePrice = Math.floor(units.honeyfridgePriceBase * (priceIncrement ** units.honeyfridge));
-    units.bighivePrice = Math.floor(units.bighivePriceBase * (priceIncrement ** units.bighive));
-    units.noneuclideanhoneycellarPrice = Math.floor(units.noneuclideanhoneycellarPriceBase * (priceIncrement ** units.noneuclideanhoneycellar));
+    beebox.price = Math.floor(beebox.priceBase * (priceIncrement ** beebox.number));
+    interviewer.price = Math.floor(interviewer.priceBase * (priceIncrement ** interviewer.number));
+    flowergarden.price = Math.floor(flowergarden.priceBase * (priceIncrement ** flowergarden.number));
+    honeycrate.price = Math.floor(honeycrate.priceBase * (priceIncrement ** honeycrate.number));
+    queenbee.price = Math.floor(queenbee.priceBase * (priceIncrement ** queenbee.number));
+    smoker.price = Math.floor(smoker.priceBase * (priceIncrement ** smoker.number));
+    smallhive.price = Math.floor(smallhive.priceBase * (priceIncrement ** smallhive.number));
+    honeyfridge.price = Math.floor(honeyfridge.priceBase * (priceIncrement ** honeyfridge.number));
+    bighive.price = Math.floor(bighive.priceBase * (priceIncrement ** bighive.number));
+    noneuclideanhoneycellar.price = Math.floor(noneuclideanhoneycellar.priceBase * (priceIncrement ** noneuclideanhoneycellar.number));
 
     //ACHIEVEMENTS
 
@@ -149,39 +168,39 @@ function checkImpact(){
 
     //UNIT HIDING THINGY
 
-    if (honey >= (units.interviewerPriceBase / 2)){
+    if (honey >= (beebox.priceBase / 2)){
         document.querySelector(`#interviewerUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.flowergardenPriceBase / 2)){
+    if (honey >= (flowergarden.priceBase / 2)){
         document.querySelector(`#flowergardenUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.honeycratePriceBase / 2)){
+    if (honey >= (honeycrate.priceBase / 2)){
         document.querySelector(`#honeycrateUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.queenbeePriceBase / 2)){
+    if (honey >= (queenbee.priceBase / 2)){
         document.querySelector(`#queenbeeUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.smokerPriceBase / 2)){
+    if (honey >= (smoker.priceBase / 2)){
         document.querySelector(`#smokerUnit`).classList.remove(`hidden`);
     };
     
-    if (honey >= (units.smallhivePriceBase / 2)){
+    if (honey >= (smallhive.priceBase / 2)){
         document.querySelector(`#smallhiveUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.honeyfridgePriceBase / 2)){
+    if (honey >= (honeyfridge.priceBase / 2)){
         document.querySelector(`#honeyfridgeUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.bighivePriceBase / 2)){
+    if (honey >= (bighive.priceBase / 2)){
         document.querySelector(`#bighiveUnit`).classList.remove(`hidden`);
     };
 
-    if (honey >= (units.noneuclideanhoneycellarPriceBase / 2)){
+    if (honey >= (noneuclideanhoneycellar.priceBase / 2)){
         document.querySelector(`#noneuclideanhoneycellarUnit`).classList.remove(`hidden`);
     };
 }
@@ -202,9 +221,9 @@ function generateBees(){
 // START: UNIT PURCHASE FUNCTIONS
 
 document.querySelector(`#beeboxUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.beeboxPrice){
-        units.beebox++;
-        honey -= units.beeboxPrice;
+    if (honey >= beebox.price){
+        beebox.number++;
+        honey -= beebox.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -212,9 +231,9 @@ document.querySelector(`#beeboxUnitPurchase`).addEventListener("click", () => {
 });
 
 document.querySelector(`#interviewerUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.interviewerPrice){
-        units.interviewer++;
-        honey -= units.interviewerPrice;
+    if (honey >= interviewer.price){
+        interviewer.number++;
+        honey -= interviewer.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -222,9 +241,9 @@ document.querySelector(`#interviewerUnitPurchase`).addEventListener("click", () 
 });
 
 document.querySelector(`#flowergardenUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.flowergardenPrice){
-        units.flowergarden++;
-        honey -= units.flowergardenPrice;
+    if (honey >= flowergarden.price){
+        flowergarden.number++;
+        honey -= flowergarden.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -232,9 +251,9 @@ document.querySelector(`#flowergardenUnitPurchase`).addEventListener("click", ()
 });
 
 document.querySelector(`#honeycrateUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.honeycratePrice){
-        units.honeycrate++;
-        honey -= units.honeycratePrice;
+    if (honey >= honeycrate.price){
+        honeycrate.number++;
+        honey -= honeycrate.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -242,9 +261,9 @@ document.querySelector(`#honeycrateUnitPurchase`).addEventListener("click", () =
 });
 
 document.querySelector(`#queenbeeUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.queenbeePrice){
-        units.queenbee++;
-        honey -= units.queenbeePrice;
+    if (honey >= queenbee.price){
+        queenbee.number++;
+        honey -= queenbee.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -252,9 +271,9 @@ document.querySelector(`#queenbeeUnitPurchase`).addEventListener("click", () => 
 });
 
 document.querySelector(`#smokerUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.smokerPrice){
-        units.smoker++;
-        honey -= units.smokerPrice;
+    if (honey >= smoker.price){
+        smoker.number++;
+        honey -= smoker.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -262,9 +281,9 @@ document.querySelector(`#smokerUnitPurchase`).addEventListener("click", () => {
 });
 
 document.querySelector(`#smallhiveUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.smallhivePrice){
-        units.smallhive++;
-        honey -= units.smallhivePrice;
+    if (honey >= smallhive.price){
+        smallhive.number++;
+        honey -= smallhive.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -272,9 +291,9 @@ document.querySelector(`#smallhiveUnitPurchase`).addEventListener("click", () =>
 });
 
 document.querySelector(`#honeyfridgeUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.honeyfridgePrice){
-        units.honeyfridge++;
-        honey -= units.honeyfridgePrice;
+    if (honey >= honeyfridge.price){
+        honeyfridge.number++;
+        honey -= honeyfridge.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -282,9 +301,9 @@ document.querySelector(`#honeyfridgeUnitPurchase`).addEventListener("click", () 
 });
 
 document.querySelector(`#bighiveUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.bighivePrice){
-        units.bighive++;
-        honey -= units.bighivePrice;
+    if (honey >= bighive.price){
+        bighive.number++;
+        honey -= bighive.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -292,9 +311,9 @@ document.querySelector(`#bighiveUnitPurchase`).addEventListener("click", () => {
 });
 
 document.querySelector(`#noneuclideanhoneycellarUnitPurchase`).addEventListener("click", () => {
-    if (honey >= units.noneuclideanhoneycellarPrice){
-        units.noneuclideanhoneycellar++;
-        honey -= units.noneuclideanhoneycellarPrice;
+    if (honey >= noneuclideanhoneycellar.price){
+        noneuclideanhoneycellar.number++;
+        honey -= noneuclideanhoneycellar.price;
         document.dispatchEvent(unitPurchaseEvent);
         checkImpact();
         refreshNumbers();
@@ -307,16 +326,16 @@ function saveGame(){
     localStorage.setItem(`bees`, bees);
     localStorage.setItem(`honey`, honey);
 
-    localStorage.setItem(`beeboxUnit`, units.beebox);
-    localStorage.setItem(`interviewerUnit`, units.interviewer);
-    localStorage.setItem(`flowergardenUnit`, units.flowergarden);
-    localStorage.setItem(`honeycrateUnit`, units.honeycrate);
-    localStorage.setItem(`queenbeeUnit`, units.queenbee);
-    localStorage.setItem(`smokerUnit`, units.smoker);
-    localStorage.setItem(`smallhiveUnit`, units.smallhive);
-    localStorage.setItem(`honeyfridgeUnit`, units.honeyfridge);
-    localStorage.setItem(`bighiveUnit`, units.bighive);
-    localStorage.setItem(`noneuclideanhoneycellarUnit`, units.noneuclideanhoneycellar);
+    localStorage.setItem(`beeboxUnit`, beebox.number);
+    localStorage.setItem(`interviewerUnit`, interviewer.number);
+    localStorage.setItem(`flowergardenUnit`, flowergarden.number);
+    localStorage.setItem(`honeycrateUnit`, honeycrate.number);
+    localStorage.setItem(`queenbeeUnit`, queenbee.number);
+    localStorage.setItem(`smokerUnit`, smoker.number);
+    localStorage.setItem(`smallhiveUnit`, smallhive.number);
+    localStorage.setItem(`honeyfridgeUnit`, honeyfridge.number);
+    localStorage.setItem(`bighiveUnit`, bighive.number);
+    localStorage.setItem(`noneuclideanhoneycellarUnit`, noneuclideanhoneycellar.number);
 
     localStorage.setItem(`firstAchievement`, achievements.firstAchievement);
     localStorage.setItem(`secondAchievement`, achievements.secondAchievement);
@@ -348,16 +367,16 @@ document.querySelector(`#clearButton`).addEventListener("click", () => {
     bees = beesBase;
     honey = honeyBase;
 
-    units.beebox = 0;
-    units.interviewer = 0;
-    units.flowergarden = 0;
-    units.honeycrate = 0;
-    units.queenbee = 0;
-    units.smoker = 0;
-    units.smallhive = 0;
-    units.honeyfridge = 0;
-    units.bighive = 0;
-    units.noneuclideanhoneycellar = 0;
+    beebox.number = 0;
+    interviewer.number = 0;
+    flowergarden.number = 0;
+    honeycrate.number = 0;
+    queenbee.number = 0;
+    smoker.number = 0;
+    smallhive.number = 0;
+    honeyfridge.number = 0;
+    bighive.number = 0;
+    noneuclideanhoneycellar.number = 0;
 
     achievements.firstAchievement = false;
     document.querySelector(`#firstAchievement`).classList.remove(`achieved`);

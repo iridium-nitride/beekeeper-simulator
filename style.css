@@ -28,24 +28,25 @@
 }
 @media (max-width: 768px){
     main{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         grid-template-rows: repeat(4, 1fr) !important;
-        gap: var(--l-space);
+        gap: var(--l-space) !important;
     }
     #unitsSection, #statsSection, #achievementsSection, #aboutSection{
-        grid-column: 1;
+        grid-column: 1 !important;
+        width: 100% !important;
     }
     #unitsSection{
-        grid-row: 2;
+        grid-row: 2 !important;
     }
     #statsSection{
-        grid-row: 1;
+        grid-row: 1 !important;
     }
     #achievementsSection{
-        grid-row: 3;
+        grid-row: 3 !important;
     }
     #aboutSection{
-        grid-row: 4;
+        grid-row: 4 !important;
     }
 }
 html, body{

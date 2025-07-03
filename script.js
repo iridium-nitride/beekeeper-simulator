@@ -78,6 +78,7 @@ const achievements = {
     thirdAchievement: localStorage.getItem(`thirdAchievement`) === "true",
     fourthAchievement: localStorage.getItem(`fourthAchievement`)  === "true",
     fifthAchievement: localStorage.getItem(`fifthAchievement`)  === "true",
+    sixthAchievement: localStorage.getItem(`sixthAchievement`) === "true",
 }
 
 checkImpact();
@@ -165,6 +166,11 @@ function checkImpact(){
         achievements.fifthAchievement = true;
         document.querySelector(`#fifthAchievement`).classList.add(`achieved`);
     };
+        //sixth
+    if (beebox.number > 0 && interviewer.number > 0 && flowergarden.number > 0 && honeycrate.number > 0 && queenbee.number > 0 && smoker.number > 0 && smallhive.number > 0 && honeyfridge.number > 0 && bighive.number > 0 && noneuclideanhoneycellar.number > 0){
+        achievements.sixthAchievement = true;
+        document.querySelector(`#sixthAchievement`).classList.add(`achieved`);
+    }
 
     //UNIT HIDING THINGY
 
@@ -342,6 +348,7 @@ function saveGame(){
     localStorage.setItem(`thirdAchievement`, achievements.thirdAchievement);
     localStorage.setItem(`fourthAchievement`, achievements.fourthAchievement);
     localStorage.setItem(`fifthAchievement`, achievements.fifthAchievement);
+    localStorage.setItem(`sixthAchievement`, achievements.sixthAchievement);
 
     document.querySelector(`#saveState`).textContent = `game saved!`;
     setTimeout(() => {
@@ -388,6 +395,8 @@ document.querySelector(`#clearButton`).addEventListener("click", () => {
     document.querySelector(`#fourthAchievement`).classList.remove(`achieved`);
     achievements.fifthAchievement = false;
     document.querySelector(`#fifthAchievement`).classList.remove(`achieved`);
+    achievements.sixthAchievement = false;
+    document.querySelector(`#sixthAchievement`).classList.remove(`achieved`);
 
     checkImpact();
     refreshNumbers();
